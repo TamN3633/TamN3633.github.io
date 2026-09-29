@@ -1,0 +1,35 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # Тесты гейта + сборка + гейт приватности; любой провал не даёт выложить сайт.
+      # В CI нет локального .privacy-denylist — гейт проверяет только общие шаблоны (IP, шары, численность);
+      # названия работодателей ловит локальный pre-push.
+      - uses: withastro/action@v6
+        with:
+          build-cmd: npm test && npm run check
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

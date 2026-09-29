@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import profile from '../data/profile.json';
+
+const cases = await Promise.all(
+  (await getCollection('cases'))
+    .sort((a, b) => a.data.order - b.data.order)
+    .map(async (entry) => ({ ...entry.data, id: entry.id, Content: (await render(entry)).Content })),
+);
+const { description } = profile;
+---
+
+<Base title={`${profile.name} — ${profile.role.split('.')[0].toLowerCase()}`} description={description}>
+  <nav class="nav" aria-label="Разделы">
+    <a href="#about">Кто я</a>
+    <a href="#stats">Цифры</a>
+    <a href="#cases">Кейсы</a>
+    <a href="#contact">Контакт</a>
+  </nav>
+
+  <main>
+    <section id="about" class="about">
+      <h1>{profile.name}</h1>
+      <p class="role">{profile.role}</p>
+      {profile.lead.map((p) => <p class="lead">{p}</p>)}
+      <p class="status">{profile.status}</p>
+    </section>
+
+    <section id="stats">
+      <h2>Цифры</h2>
+      <dl class="stats">
+        {profile.stats.map((s) => (
+          <div class="stat">
+            <dt>{s.value}</dt>
+            <dd>{s.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section id="cases">
+      <h2>Кейсы</h2>
+      {cases.map(({ id, title, status, before, after, result, Content }) => (
+        <article class="case" id={id}>
+          <h3>{title}</h3>
+          <p class="case-status">{status}</p>
+          <dl class="bar">
+            <dt>Было</dt><dd>{before}</dd>
+            <dt>Стало</dt><dd>{after}</dd>
+            <dt>Итог</dt><dd class="result">{result}</dd>
+          </dl>
+          <div class="case-body"><Content /></div>
+        </article>
+      ))}
+    </section>
+
+    <section id="contact">
+      <h2>Контакт</h2>
+      <ul class="contacts">
+        {profile.contacts.map((c) => (
+          <li><span>{c.label}</span> <a href={c.href}>{c.value}</a></li>
+        ))}
+      </ul>
+    </section>
+  </main>
+</Base>
