@@ -59,14 +59,6 @@ h3 { font-size: 1.25rem; margin: 0; }
 .stat dt { font: 600 1.35rem var(--mono); color: var(--text); text-wrap: balance; }
 .stat dd { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.92rem; }
 
-.case { border-top: 1px solid var(--line); padding-top: 1.5rem; scroll-margin-top: 3rem; }
-.case-status { font: 0.85rem var(--mono); color: var(--accent); margin: 0.35rem 0 1rem; }
-.bar { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1rem; margin: 0 0 1rem; }
-.bar dt { font: 600 0.85rem/1.9 var(--mono); color: var(--muted); }
-.bar dd { margin: 0; }
-.bar .result { font-weight: 600; }
-.case-body p { margin: 0 0 0.9rem; }
-
 .stack-note { color: var(--muted); margin: 0 0 1.25rem; }
 .projects {
   display: grid;

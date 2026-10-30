@@ -1,14 +1,8 @@
 ---
-import { getCollection, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import profile from '../data/profile.json';
 import stack from '../data/stack.json';
 
-const cases = await Promise.all(
-  (await getCollection('cases'))
-    .sort((a, b) => a.data.order - b.data.order)
-    .map(async (entry) => ({ ...entry.data, id: entry.id, Content: (await render(entry)).Content })),
-);
 const { description } = profile;
 ---
 
@@ -16,7 +10,6 @@ const { description } = profile;
   <nav class="nav" aria-label="Разделы">
     <a href="#about">Кто я</a>
     <a href="#stats">Цифры</a>
-    <a href="#cases">Кейсы</a>
     <a href="#stack">Стек</a>
     <a href="#contact">Контакт</a>
   </nav>
@@ -41,29 +34,13 @@ const { description } = profile;
       </dl>
     </section>
 
-    <section id="cases">
-      <h2>Кейсы</h2>
-      {cases.map(({ id, title, status, before, after, result, Content }) => (
-        <article class="case" id={id}>
-          <h3>{title}</h3>
-          <p class="case-status">{status}</p>
-          <dl class="bar">
-            <dt>Было</dt><dd>{before}</dd>
-            <dt>Стало</dt><dd>{after}</dd>
-            <dt>Итог</dt><dd class="result">{result}</dd>
-          </dl>
-          <div class="case-body"><Content /></div>
-        </article>
-      ))}
-    </section>
-
     <section id="stack">
       <h2>Стек</h2>
       <p class="stack-note">{stack.note}</p>
       <div class="projects">
         {stack.projects.map((p) => (
           <article class="project">
-            <h3><a href={p.href}>{p.name}</a></h3>
+            <h3>{p.href ? <a href={p.href}>{p.name}</a> : p.name}</h3>
             <p class="project-what">{p.what}</p>
             <ul class="tech" role="list">{p.items.map((i) => <li>{i}</li>)}</ul>
           </article>

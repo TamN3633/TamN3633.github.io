@@ -9,13 +9,11 @@
     },
     {
       "name": "vacation-app",
-      "href": "#vacation",
       "what": "Согласование отпусков и учёт рабочего времени. В эксплуатации с сентября 2026.",
       "items": ["Python", "Flask", "Jinja", "SQLite", "waitress", "IMAP/SMTP", "Docker", "Playwright", "ruff", "pyright", "Trivy", "restic"]
     },
     {
       "name": "budget-app",
-      "href": "#svod",
       "what": "Оператор планового отдела сам загружает факт часов в бюджеты, без ИТ.",
       "items": ["Python", "Flask", "openpyxl", "PyInstaller", "Telegram Bot API"]
     }
