@@ -1,0 +1,23 @@
+{
+  "note": "Код пишут ИИ-агенты. Я ставлю задачу, задаю проверки и принимаю результат.",
+  "projects": [
+    {
+      "name": "ruinme.ru",
+      "href": "https://ruinme.ru/",
+      "what": "Разбор матчей Dota 2: сайт и боты для Telegram и Discord. Совместный проект.",
+      "items": ["TypeScript", "Next.js", "React", "PostgreSQL", "Drizzle", "grammY", "Discord API", "Satori", "DeepSeek (AI SDK)", "Vitest", "Playwright", "Docker Compose", "Caddy", "Sentry", "PostHog"]
+    },
+    {
+      "name": "vacation-app",
+      "href": "#vacation",
+      "what": "Согласование отпусков и учёт рабочего времени. В эксплуатации с сентября 2026.",
+      "items": ["Python", "Flask", "Jinja", "SQLite", "waitress", "IMAP/SMTP", "Docker", "Playwright", "ruff", "pyright", "Trivy", "restic"]
+    },
+    {
+      "name": "budget-app",
+      "href": "#svod",
+      "what": "Оператор планового отдела сам загружает факт часов в бюджеты, без ИТ.",
+      "items": ["Python", "Flask", "openpyxl", "PyInstaller", "Telegram Bot API"]
+    }
+  ]
+}

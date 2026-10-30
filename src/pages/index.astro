@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import profile from '../data/profile.json';
+import stack from '../data/stack.json';
 
 const cases = await Promise.all(
   (await getCollection('cases'))
@@ -16,6 +17,7 @@ const { description } = profile;
     <a href="#about">Кто я</a>
     <a href="#stats">Цифры</a>
     <a href="#cases">Кейсы</a>
+    <a href="#stack">Стек</a>
     <a href="#contact">Контакт</a>
   </nav>
 
@@ -53,6 +55,20 @@ const { description } = profile;
           <div class="case-body"><Content /></div>
         </article>
       ))}
+    </section>
+
+    <section id="stack">
+      <h2>Стек</h2>
+      <p class="stack-note">{stack.note}</p>
+      <div class="projects">
+        {stack.projects.map((p) => (
+          <article class="project">
+            <h3><a href={p.href}>{p.name}</a></h3>
+            <p class="project-what">{p.what}</p>
+            <ul class="tech" role="list">{p.items.map((i) => <li>{i}</li>)}</ul>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section id="contact">

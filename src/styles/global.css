@@ -28,7 +28,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   position: sticky;
   top: 0;
   display: flex;
-  gap: 1.25rem;
+  gap: 1rem;
   justify-content: center;
   padding: 0.75rem 1rem;
   background: color-mix(in srgb, var(--bg) 92%, transparent);
@@ -59,13 +59,26 @@ h3 { font-size: 1.25rem; margin: 0; }
 .stat dt { font: 600 1.35rem var(--mono); color: var(--text); text-wrap: balance; }
 .stat dd { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.92rem; }
 
-.case { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.case { border-top: 1px solid var(--line); padding-top: 1.5rem; scroll-margin-top: 3rem; }
 .case-status { font: 0.85rem var(--mono); color: var(--accent); margin: 0.35rem 0 1rem; }
 .bar { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 1rem; margin: 0 0 1rem; }
 .bar dt { font: 600 0.85rem/1.9 var(--mono); color: var(--muted); }
 .bar dd { margin: 0; }
 .bar .result { font-weight: 600; }
 .case-body p { margin: 0 0 0.9rem; }
+
+.stack-note { color: var(--muted); margin: 0 0 1.25rem; }
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem;
+}
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem; }
+.project h3 { font: 600 1.05rem var(--mono); }
+.project-what { color: var(--muted); font-size: 0.92rem; margin: 0.35rem 0 0.75rem; }
+.tech { list-style: none; padding: 0; margin: 0; font: 0.85rem/1.7 var(--mono); }
+.tech li { display: inline-block; white-space: nowrap; margin-right: 0.6ch; }
+.tech li:not(:last-child)::after { content: '\a0·' / ''; color: var(--muted); }
 
 .contacts { list-style: none; padding: 0; margin: 0; font-family: var(--mono); }
 .contacts li { margin-bottom: 0.5rem; }
