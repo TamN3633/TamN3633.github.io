@@ -49,7 +49,6 @@ const { description } = profile;
           </div>
         ))}
       </dl>
-      <p class="note">{profile.statsNote}</p>
     </section>
 
     <section id="skills">
@@ -66,7 +65,6 @@ const { description } = profile;
 
     <section id="projects">
       <h2>Проекты</h2>
-      <p class="note">{stack.note}</p>
       <div class="projects">
         {stack.projects.map((p) => (
           <article class="project">
@@ -76,6 +74,7 @@ const { description } = profile;
           </article>
         ))}
       </div>
+      <p class="note">{stack.note}</p>
     </section>
 
     <section id="contact">
