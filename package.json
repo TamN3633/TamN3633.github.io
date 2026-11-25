@@ -14,7 +14,7 @@
     "check": "astro build && node scripts/check-privacy.mjs dist"
   },
   "dependencies": {
-    "astro": "^7.3.5"
+    "astro": "^7.4.13"
   },
   "allowScripts": {
     "esbuild": true
