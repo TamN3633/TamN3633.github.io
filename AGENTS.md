@@ -7,7 +7,8 @@
 - Astro 7, без UI-фреймворков и без клиентского JS; Node >= 22.12.
 - `npm run dev` — локально (в фоне: `npx astro dev --background`, стоп `npx astro dev stop`).
 - `npm test` — тесты гейта приватности (`node --test`).
-- `npm run check` — сборка + гейт приватности по `dist/` и по всем файлам, которые уйдут в коммит. Локально требует `.privacy-denylist`.
+- `npm run check` — сборка + гейт приватности по `dist/` и по всем файлам, которые уйдут в коммит + свежесть PDF. Локально требует `.privacy-denylist`.
+- `npm run pdf` — пересобрать `public/cv.pdf` (A4, печать страницы через Chrome headless) и отметку `public/cv.pdf.hash`. Запускать после любой правки `src/data/*`, `index.astro`, `Base.astro`, `global.css` — иначе `check` и CI падают: «PDF устарел». Коммитить PDF и отметку вместе с текстами.
 - Выкладка: пуш в `main` → GitHub Actions (`.github/workflows/deploy.yml`, `withastro/action`: `npm test && npm run check`) → Pages.
 - Перед пушем: `trivy fs --scanners vuln,secret,misconfig --skip-dirs node_modules --skip-dirs dist .`
 
@@ -16,6 +17,7 @@
 - `src/content/cases/*.md` — кейсы (коллекция `cases`, схема в `src/content.config.ts`), порядок полем `order`.
 - `src/pages/index.astro` + `src/layouts/Base.astro` + `src/styles/global.css` — вёрстка; цвета и шрифты — токенами в `:root`.
 - `scripts/check-privacy.mjs` — гейт приватности, тесты рядом.
+- `scripts/check-pdf.mjs` — свежесть PDF по хешу текстов (не по времени файлов), `scripts/build-pdf.mjs` — печать; тесты рядом.
 
 ## Правила
 - Ревью перед коммитом; логика в `scripts/` — сначала падающий тест. Вёрстка и тексты проверяются сборкой и гейтом.
