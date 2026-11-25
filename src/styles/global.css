@@ -68,6 +68,14 @@ h3 { font-size: 1.25rem; margin: 0; }
 .experience p { margin: 0.15rem 0 0; }
 @media (max-width: 40rem) { .experience li { grid-template-columns: 1fr; } .experience .period { margin-bottom: 0.15rem; } }
 
+.experience .why { color: var(--muted); font-size: 0.92rem; }
+
+#case h3 { font: 600 1.05rem var(--mono); margin-bottom: 0.75rem; }
+.case { margin: 0; }
+.case div { margin-bottom: 0.75rem; }
+.case dt { font: 600 0.85rem var(--mono); color: var(--muted); }
+.case dd { margin: 0.1rem 0 0; }
+
 .note { color: var(--muted); font-size: 0.92rem; margin: 1rem 0 0; }
 
 .skill-group + .skill-group { margin-top: 1.5rem; }
@@ -91,9 +99,12 @@ h3 { font-size: 1.25rem; margin: 0; }
 .contacts li { margin-bottom: 0.5rem; }
 .contacts span { color: var(--muted); display: inline-block; min-width: 6rem; }
 
+@page { size: A4; margin: 15mm; }
+
 @media print {
+  .contacts li:has(a[href$=".pdf"]) { display: none; }
   .nav { display: none; }
-  .experience li, .skills li { break-inside: avoid; }
+  .experience li, .skills li, .case div, .stat, .project { break-inside: avoid; }
   .skill-group h3 { break-after: avoid; }
   :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #333; --accent: #000; --line: #999; color-scheme: light; }
 }

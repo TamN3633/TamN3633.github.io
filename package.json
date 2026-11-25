@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "node --test 'scripts/*.test.mjs'",
-    "check": "astro build && node scripts/check-privacy.mjs dist"
+    "check": "astro build && node scripts/check-privacy.mjs dist && node scripts/check-pdf.mjs",
+    "pdf": "astro build && node scripts/build-pdf.mjs"
   },
   "dependencies": {
     "astro": "^7.4.13"
