@@ -1,21 +1,46 @@
 {
-  "note": "Код пишут ИИ-агенты. Я ставлю задачу, задаю проверки и принимаю результат.",
+  "note": "Сервисы собираю с ИИ-инструментами: код пишет ИИ, а постановку задачи, автотесты, проверку уязвимостей перед выпуском, приёмку и запуск делаю я.",
   "projects": [
+    {
+      "name": "vacation-app",
+      "what": "Согласование отпусков и учёт рабочего времени для проектного бюро. Внедрён в сентябре 2026.",
+      "items": [
+        "Python",
+        "Flask",
+        "Jinja",
+        "SQLite",
+        "waitress",
+        "IMAP/SMTP",
+        "Docker",
+        "Playwright",
+        "ruff",
+        "pyright",
+        "Trivy",
+        "restic"
+      ]
+    },
+    {
+      "name": "budget-app",
+      "what": "Оператор планового отдела сам переносит отработанные часы в бюджеты, без помощи ИТ.",
+      "items": [
+        "Python",
+        "Flask",
+        "openpyxl",
+        "PyInstaller",
+        "Telegram Bot API"
+      ]
+    },
     {
       "name": "ruinme.ru",
       "href": "https://ruinme.ru/",
       "what": "Разбор матчей Dota 2: сайт и боты для Telegram и Discord. Совместный проект.",
-      "items": ["TypeScript", "Next.js", "React", "PostgreSQL", "Drizzle", "grammY", "Discord API", "Satori", "DeepSeek (AI SDK)", "Vitest", "Playwright", "Docker Compose", "Caddy", "Sentry", "PostHog"]
-    },
-    {
-      "name": "vacation-app",
-      "what": "Согласование отпусков и учёт рабочего времени. В эксплуатации с сентября 2026.",
-      "items": ["Python", "Flask", "Jinja", "SQLite", "waitress", "IMAP/SMTP", "Docker", "Playwright", "ruff", "pyright", "Trivy", "restic"]
-    },
-    {
-      "name": "budget-app",
-      "what": "Оператор планового отдела сам загружает факт часов в бюджеты, без ИТ.",
-      "items": ["Python", "Flask", "openpyxl", "PyInstaller", "Telegram Bot API"]
+      "items": [
+        "TypeScript",
+        "Next.js",
+        "PostgreSQL",
+        "Docker Compose",
+        "Playwright"
+      ]
     }
   ]
 }

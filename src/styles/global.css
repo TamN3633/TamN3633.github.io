@@ -60,18 +60,22 @@ h3 { font-size: 1.25rem; margin: 0; }
 .stat dt { font: 600 1.35rem var(--mono); color: var(--text); text-wrap: balance; }
 .stat dd { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.92rem; }
 
-.skills-note { color: var(--muted); margin: 0 0 1.25rem; }
-.skill-group + .skill-group { margin-top: 2rem; }
-.skill-group h3 { font: 600 1.05rem var(--mono); margin-bottom: 0.75rem; }
-.skills { list-style: none; padding: 0; margin: 0; }
-.skill { border-left: 2px solid var(--line); padding: 0 0 0 0.9rem; margin-bottom: 1.1rem; }
-.skill.tier-A { border-left-color: var(--accent); }
-.skill h4 { font-size: 1rem; margin: 0; }
-.skill .level { font: 0.78rem var(--mono); color: var(--muted); margin: 0; }
-.skill p { margin: 0.2rem 0 0; }
-.skill.tier-C p { color: var(--muted); font-size: 0.92rem; }
+.experience { list-style: none; padding: 0; margin: 0; }
+.experience li { display: grid; grid-template-columns: 13rem 1fr; gap: 0 1rem; margin-bottom: 1rem; }
+.experience .period { font: 0.9rem var(--mono); color: var(--muted); padding-top: 0.1rem; }
+.experience h3 { font-size: 1rem; }
+.experience .place { font-weight: 400; color: var(--muted); }
+.experience p { margin: 0.15rem 0 0; }
+@media (max-width: 40rem) { .experience li { grid-template-columns: 1fr; } .experience .period { margin-bottom: 0.15rem; } }
 
-.stack-note { color: var(--muted); margin: 0 0 1.25rem; }
+.note { color: var(--muted); font-size: 0.92rem; margin: 1rem 0 0; }
+#projects .note { margin: 0 0 1.25rem; }
+
+.skill-group + .skill-group { margin-top: 1.5rem; }
+.skill-group h3 { font: 600 1.05rem var(--mono); margin-bottom: 0.5rem; }
+.skills { margin: 0; padding-left: 1.2rem; }
+.skills li { margin-bottom: 0.35rem; }
+
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
@@ -90,7 +94,7 @@ h3 { font-size: 1.25rem; margin: 0; }
 
 @media print {
   .nav { display: none; }
-  .skill { break-inside: avoid; }
+  .experience li, .skills li { break-inside: avoid; }
   .skill-group h3 { break-after: avoid; }
   :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #333; --accent: #000; --line: #999; color-scheme: light; }
 }

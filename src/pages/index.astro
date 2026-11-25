@@ -7,12 +7,12 @@ import skills from '../data/skills.json';
 const { description } = profile;
 ---
 
-<Base title={`${profile.name} — ${profile.role.split('.')[0].toLowerCase()}`} description={description}>
+<Base title={`${profile.name} — ${profile.role.toLowerCase()}`} description={description}>
   <nav class="nav" aria-label="Разделы">
-    <a href="#about">Кто я</a>
-    <a href="#stats">Цифры</a>
+    <a href="#experience">Опыт</a>
+    <a href="#stats">Результаты</a>
     <a href="#skills">Навыки</a>
-    <a href="#stack">Стек</a>
+    <a href="#projects">Проекты</a>
     <a href="#contact">Контакт</a>
   </nav>
 
@@ -24,8 +24,23 @@ const { description } = profile;
       <p class="status">{profile.status}</p>
     </section>
 
+    <section id="experience">
+      <h2>Опыт</h2>
+      <ol class="experience" role="list">
+        {profile.experience.map((e) => (
+          <li>
+            <span class="period">{e.period}</span>
+            <div>
+              <h3>{e.role}{e.place && <span class="place"> · {e.place}</span>}</h3>
+              {e.text && <p>{e.text}</p>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
     <section id="stats">
-      <h2>Цифры</h2>
+      <h2>Результаты</h2>
       <dl class="stats">
         {profile.stats.map((s) => (
           <div class="stat">
@@ -34,30 +49,24 @@ const { description } = profile;
           </div>
         ))}
       </dl>
+      <p class="note">{profile.statsNote}</p>
     </section>
 
     <section id="skills">
       <h2>Навыки</h2>
-      <p class="skills-note">{skills.note}</p>
       {skills.groups.map((g) => (
         <div class="skill-group">
           <h3>{g.title}</h3>
-          <ul class="skills" role="list">
-            {g.items.map((s) => (
-              <li class={`skill tier-${s.tier}`}>
-                <h4>{s.name}</h4>
-                <p class="level">{s.level}</p>
-                <p>{s.text}</p>
-              </li>
-            ))}
+          <ul class="skills">
+            {g.items.map((i) => <li>{i}</li>)}
           </ul>
         </div>
       ))}
     </section>
 
-    <section id="stack">
-      <h2>Стек</h2>
-      <p class="stack-note">{stack.note}</p>
+    <section id="projects">
+      <h2>Проекты</h2>
+      <p class="note">{stack.note}</p>
       <div class="projects">
         {stack.projects.map((p) => (
           <article class="project">
