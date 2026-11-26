@@ -95,9 +95,10 @@ const { description } = profile;
       <h2>Контакт</h2>
       <ul class="contacts">
         {profile.contacts.map((c) => (
-          <li><span>{c.label}</span> <a href={c.href}>{c.value}</a></li>
+          <li><span>{c.label}</span> {c.href ? <a href={c.href}>{c.value}</a> : c.value}</li>
         ))}
       </ul>
+      <p class="note">Обновлено: {profile.updated}</p>
     </section>
   </main>
 </Base>
