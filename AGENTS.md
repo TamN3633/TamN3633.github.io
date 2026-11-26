@@ -13,8 +13,7 @@
 - Перед пушем: `trivy fs --scanners vuln,secret,misconfig --skip-dirs node_modules --skip-dirs dist .`
 
 ## Структура
-- `src/data/profile.json` — кто я, статус, цифры, контакты. Тексты правятся здесь, не в вёрстке.
-- `src/content/cases/*.md` — кейсы (коллекция `cases`, схема в `src/content.config.ts`), порядок полем `order`.
+- `src/data/profile.json` — шапка, статус, опыт, кейс, результаты, контакты; `skills.json` — навыки; `stack.json` — проекты. Тексты правятся здесь, не в вёрстке.
 - `src/pages/index.astro` + `src/layouts/Base.astro` + `src/styles/global.css` — вёрстка; цвета и шрифты — токенами в `:root`.
 - `scripts/check-privacy.mjs` — гейт приватности, тесты рядом.
 - `scripts/check-pdf.mjs` — свежесть PDF по хешу текстов (не по времени файлов), `scripts/build-pdf.mjs` — печать; тесты рядом.

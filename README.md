@@ -11,4 +11,4 @@ npm test        # тесты гейта приватности
 npm run check   # сборка + гейт приватности
 ```
 
-Тексты и цифры — в `src/data/profile.json` и `src/content/cases/`, вёрстка — в `src/pages/` и `src/styles/`.
+Тексты и цифры — в `src/data/profile.json`, `skills.json` и `stack.json`, вёрстка — в `src/pages/` и `src/styles/`. PDF — `npm run pdf`.
