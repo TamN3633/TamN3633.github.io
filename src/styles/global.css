@@ -68,7 +68,6 @@ h3 { font-size: 1.25rem; margin: 0; }
 .experience p { margin: 0.15rem 0 0; }
 @media (max-width: 40rem) { .experience li { grid-template-columns: 1fr; } .experience .period { margin-bottom: 0.15rem; } }
 
-.experience .why { color: var(--muted); font-size: 0.92rem; }
 
 #case h3 { font: 600 1.05rem var(--mono); margin-bottom: 0.75rem; }
 .case { margin: 0; }

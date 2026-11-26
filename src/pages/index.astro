@@ -10,9 +10,9 @@ const { description } = profile;
 <Base title={`${profile.name} — ${profile.role.toLowerCase()}`} description={description}>
   <nav class="nav" aria-label="Разделы">
     <a href="#experience">Опыт</a>
-    <a href="#case">Кейс</a>
     <a href="#stats">Результаты</a>
     <a href="#skills">Навыки</a>
+    <a href="#case">Кейс</a>
     <a href="#projects">Проекты</a>
     <a href="#contact">Контакт</a>
   </nav>
@@ -34,24 +34,10 @@ const { description } = profile;
             <div>
               <h3>{e.role}{e.place && <span class="place"> · {e.place}</span>}</h3>
               {e.text && <p>{e.text}</p>}
-              {e.why && <p class="why">{e.why}</p>}
             </div>
           </li>
         ))}
       </ol>
-    </section>
-
-    <section id="case">
-      <h2>Кейс</h2>
-      <h3>{profile.case.title}</h3>
-      <dl class="case">
-        {profile.case.items.map((c) => (
-          <div>
-            <dt>{c.label}</dt>
-            <dd>{c.text}</dd>
-          </div>
-        ))}
-      </dl>
     </section>
 
     <section id="stats">
@@ -76,6 +62,19 @@ const { description } = profile;
           </ul>
         </div>
       ))}
+    </section>
+
+    <section id="case">
+      <h2>Кейс</h2>
+      <h3>{profile.case.title}</h3>
+      <dl class="case">
+        {profile.case.items.map((c) => (
+          <div>
+            <dt>{c.label}</dt>
+            <dd>{c.text}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
 
     <section id="projects">
